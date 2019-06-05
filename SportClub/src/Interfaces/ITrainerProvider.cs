@@ -10,5 +10,7 @@ namespace SportClub.Interfaces
 		void AddTrainer(Trainer trainer);
 
 		void UpdateTrainer(Trainer trainer);
+
+		void DeleteTrainer(Trainer trainer);
 	}
 }

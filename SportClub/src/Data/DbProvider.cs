@@ -38,6 +38,12 @@ namespace SportClub.Data
 			SaveChanges();
 		}
 
+		public void DeleteTrainer(Trainer trainer)
+		{
+			Trainers.Remove(trainer);
+			SaveChanges();
+		}
+
 		public List<User> GetUsers()
 		{
 			return Users.ToList();

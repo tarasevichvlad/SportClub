@@ -31,28 +31,34 @@ namespace SportClub.Controllers
 		[HttpGet("[action]")]
 		public IEnumerable<User> Users()
 		{
-			return userProvider.GetUsers(); //userProvider.AddUser(new User{ Name = "Name1", Age = 19, NameClub = "Name club", RankClub = 1});
+			return userProvider.GetUsers();
 		}
-
+		
 		[HttpGet("[action]")]
-		public IEnumerable<Trainer> TrainerMode()
+		public IEnumerable<Trainer> Trainers()
 		{
-			var rng = new Random();
-			
 			return trainerProvider.GetTrainers();
 		}
 
-		public class WeatherForecast
+		[HttpPost("[action]")]
+		public IActionResult  AddUser([FromBody]User user)
 		{
-			public string DateFormatted { get; set; }
-			public int TemperatureC { get; set; }
-			public string Summary { get; set; }
-
-			
-			public int TemperatureF
-			{
-				get { return 32 + (int) (TemperatureC / 0.5556); }
-			}
+			userProvider.AddUser(user);
+			return Ok(user);
+		}
+		
+		[HttpPost("[action]")]
+		public IActionResult  AddTrainer([FromBody]Trainer trainer)
+		{
+			trainerProvider.AddTrainer(trainer);
+			return Ok(trainer);
+		}
+	
+		[HttpPost("[action]")]
+		public IActionResult  DeleteTrainer([FromBody]Trainer trainer)
+		{
+			trainerProvider.DeleteTrainer(trainer);
+			return Ok(trainer);
 		}
 	}
 }

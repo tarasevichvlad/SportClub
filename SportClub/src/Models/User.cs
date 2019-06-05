@@ -4,7 +4,7 @@ namespace SportClub.Models
 {
 	public class User
 	{
-		[Key] public int ID { get; set; }
+		public int ID { get; set; }
 		public string Name { get; set; }
 		public int Age { get; set; }
 		public string NameClub { get; set; }

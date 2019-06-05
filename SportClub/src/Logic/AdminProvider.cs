@@ -42,5 +42,10 @@ namespace SportClub.Logic
 		{
 			adminProvider.UpdateTrainer(trainer);
 		}
+
+		public void DeleteTrainer(Trainer trainer)
+		{
+			adminProvider.DeleteTrainer(trainer);
+		}
 	}
 }
