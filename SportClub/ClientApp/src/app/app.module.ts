@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { UserModeComponent } from 'src/app/fetch-data/user-mode.component';
+import { TrainerModeComponent } from './trainer-mode/trainer-mode.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    UserModeComponent,
+    TrainerModeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -24,8 +26,9 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'Admin', component: CounterComponent },
+      { path: 'Trainer', component: TrainerModeComponent },
+      { path: 'User', component: UserModeComponent },
     ])
   ],
   providers: [],

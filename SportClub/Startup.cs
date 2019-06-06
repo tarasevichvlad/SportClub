@@ -5,6 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SportClub.Data;
+using SportClub.Interfaces;
+using SportClub.Logic;
+using SportClub.Models;
 
 namespace SportClub
 {
@@ -21,6 +25,10 @@ namespace SportClub
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+			services.AddSingleton<IStorageProvider, DbProvider>();
+			services.AddTransient<IUserProvider, UserProvider>();
+			services.AddTransient<ITrainerProvider, TrainerProvider>();
+			services.AddTransient<IAdminProvider, AdminProvider>();
 
 			// In production, the Angular files will be served from this directory
 			services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });

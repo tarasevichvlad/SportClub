@@ -1,0 +1,26 @@
+<h1>User mode</h1>
+
+<p *ngIf="!users"><em>Loading...</em></p>
+Name: <input type="textbox" [(ngModel)]="newUser.name"/>
+Age: <input type="textbox" [(ngModel)]="newUser.age"/>
+Name Club: <input type="textbox" [(ngModel)]="newUser.nameClub"/>
+Rank Club: <input type="textbox" [(ngModel)]="newUser.rankClub"/>
+<input type="button" [title]="'add'" [value]="'Add'" (click)="add()" >
+<table class='table table-striped' *ngIf="users">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>NameClub</th>
+      <th>RankClub</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of users">
+      <td>{{ forecast.name }}</td>
+      <td>{{ forecast.age }}</td>
+      <td>{{ forecast.nameClub }}</td>
+      <td>{{ forecast.rankClub }}</td>
+    </tr>
+  </tbody>
+</table>

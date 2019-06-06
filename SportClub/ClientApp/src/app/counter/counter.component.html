@@ -1,7 +1,59 @@
-<h1>Counter</h1>
+<h1>Admin mode</h1>
 
-<p>This is a simple example of an Angular component.</p>
+<br>
+<h2>User list:</h2>
+<br>
+<p *ngIf="!users"><em>Users loading...</em></p>
+Name: <input type="textbox" [(ngModel)]="newUser.name"/>
+Age: <input type="textbox" [(ngModel)]="newUser.age"/>
+Name Club: <input type="textbox" [(ngModel)]="newUser.nameClub"/>
+Rank Club: <input type="textbox" [(ngModel)]="newUser.rankClub"/>
+<input type="button" [title]="'add'" [value]="'Add'" (click)="addUser()" >
+<br>
+<br>
+<table class='table table-striped' *ngIf="users">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>NameClub</th>
+    <th>RankClub</th>
+    <th>Remove</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let forecast of users">
+    <td>{{ forecast.name }}</td>
+    <td>{{ forecast.age }}</td>
+    <td>{{ forecast.nameClub }}</td>
+    <td>{{ forecast.rankClub }}</td>
+    <td><input type="button" [title]="'Remove'" [value]="'Remove'" (click)="removeUser(forecast.id)"></td>
+  </tr>
+  </tbody>
+</table>
+<br>
+<h2>Trainer list:</h2>
+<br>
+<p *ngIf="!trainer"><em>Trainers loading...</em></p>
+Name: <input type="textbox" [(ngModel)]="newTrainer.name"/>
+Rank : <input type="textbox" [(ngModel)]="newTrainer.rank"/>
+<input type="button" [title]="'add'" [value]="'Add'" (click)="addTrainer()" >
+<br>
+<br>
+<table class='table table-striped' *ngIf="trainer">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Rank</th>
+    <th>Remove</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let forecast of trainer">
+    <td>{{ forecast.name }}</td>
+    <td>{{ forecast.rank }}</td>
+    <td><input type="button" [title]="'Remove'" [value]="'Remove'" (click)="removeTrainer(forecast.id)"></td>
+  </tr>
+  </tbody>
+</table>
 
-<p>Current count: <strong>{{ currentCount }}</strong></p>
-
-<button class="btn btn-primary" (click)="incrementCounter()">Increment</button>
