@@ -29,7 +29,8 @@ export class UserModeComponent implements OnInit{
   }
 }
 
-class User {
+export class User {
+  id: number;
   name: string;
   age: number;
   rankClub: number;

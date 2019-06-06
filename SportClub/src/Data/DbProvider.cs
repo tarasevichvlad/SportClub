@@ -21,6 +21,13 @@ namespace SportClub.Data
 			SaveChanges();
 		}
 
+		public void DeleteUser(User user)
+		{
+			var removeUser = Trainers.Find(user.ID);
+			Trainers.Remove(removeUser);
+			SaveChanges();
+		}
+
 		public List<Trainer> GetTrainers()
 		{
 			return Trainers.ToList();
@@ -34,13 +41,14 @@ namespace SportClub.Data
 
 		public void UpdateTrainer(Trainer trainer)
 		{
-			Trainers.Add(trainer);
+			Trainers.Update(trainer);
 			SaveChanges();
 		}
 
 		public void DeleteTrainer(Trainer trainer)
 		{
-			Trainers.Remove(trainer);
+			var removeTrainer = Trainers.Find(trainer.ID);
+			Trainers.Remove(removeTrainer);
 			SaveChanges();
 		}
 

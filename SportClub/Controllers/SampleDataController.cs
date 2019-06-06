@@ -60,5 +60,12 @@ namespace SportClub.Controllers
 			trainerProvider.DeleteTrainer(trainer);
 			return Ok(trainer);
 		}
+		
+		[HttpPost("[action]")]
+		public IActionResult  DeleteUser([FromBody]User user)
+		{
+			adminProvider.DeleteUser(user);
+			return Ok(user);
+		}
 	}
 }
